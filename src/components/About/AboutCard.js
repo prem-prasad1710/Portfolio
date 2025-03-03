@@ -11,7 +11,7 @@ function AboutCard() {
             Hi Everyone, I am <span className="purple">Prem Prasad </span>
             from <span className="purple"> New delhi, India.</span>
             <br />
-            I am currently 2nd year BCA student at Maharaja surajmal institute.
+            I am currently 3rd year BCA student at Maharaja surajmal institute.
             <br />
             Apart from coding, some other activities that I love to do!
           </p>
