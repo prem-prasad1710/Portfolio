@@ -9,6 +9,8 @@ import PortfolioTerminal from "../Terminal/PortfolioTerminal";
 import RecentWork from "./RecentWork";
 import CurrentlyStrip from "../Flair/CurrentlyStrip";
 import FunFactRotator from "../Flair/FunFactRotator";
+import RecruiterSnapshot from "../Flair/RecruiterSnapshot";
+import StackOrbit from "../Flair/StackOrbit";
 import { SITE } from "../../config/site";
 
 function Home() {
@@ -54,11 +56,13 @@ function Home() {
               <PortfolioTerminal />
             </Col>
           </Row>
+          <RecruiterSnapshot />
           <div className="dev-reveal dev-reveal--2" style={{ animationDelay: "0.28s" }}>
             <HeroStats />
           </div>
           <RecentWork />
           <CurrentlyStrip />
+          <StackOrbit />
           <FunFactRotator />
         </Container>
       </Container>

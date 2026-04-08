@@ -14,6 +14,7 @@ import {
 
 import { CgFileDocument } from "react-icons/cg";
 import { SITE } from "../config/site";
+import { openCommandPalette } from "./Flair/SiteCommandPalette";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -94,6 +95,19 @@ function NavBar() {
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
               </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="d-none d-md-flex align-items-center cmd-palette-nav">
+              <button
+                type="button"
+                className="cmd-palette-nav__btn"
+                onClick={() => openCommandPalette()}
+                aria-label="Open quick navigation"
+                title="Quick nav (⌘K or Ctrl+K)"
+              >
+                <span className="cmd-palette-nav__keys" aria-hidden>
+                  ⌘K
+                </span>
+              </button>
             </Nav.Item>
             <Nav.Item className="fork-btn">
               <Button

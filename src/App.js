@@ -13,6 +13,8 @@ import {
 } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollProgress from "./components/Flair/ScrollProgress";
+import CursorAura from "./components/Flair/CursorAura";
+import SiteCommandPalette from "./components/Flair/SiteCommandPalette";
 import EasterEggToast from "./components/Flair/EasterEggToast";
 import NotFound from "./components/Flair/NotFound";
 import { ProfileDataProvider } from "./context/ProfileDataContext";
@@ -37,7 +39,9 @@ function App() {
       <ProfileDataProvider>
         <Preloader load={load} />
         <div className="App dev-shell" id={load ? "no-scroll" : "scroll"}>
+          <CursorAura />
           <ScrollProgress />
+          <SiteCommandPalette />
           <Navbar />
           <ScrollToTop />
           <Routes>

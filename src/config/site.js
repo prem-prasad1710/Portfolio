@@ -34,6 +34,33 @@ export const CURRENTLY = {
   timezone: "IST (UTC+5:30) — good overlap with US mornings",
 };
 
+/**
+ * Home “Recruiter snapshot” — scannable bullets for hiring managers.
+ * Edit anytime; keep each line under ~100 chars for layout.
+ */
+export const RECRUITER_BULLETS = [
+  "End-to-end delivery: APIs, web surfaces, and the glue between them.",
+  "TypeScript-first, pragmatic tests, and observability when it prevents incidents.",
+  "Product-minded engineer — shipping user-facing software at Paytm scale.",
+  "Open to conversations that value clarity, ownership, and craft.",
+];
+
+/** Labels on the home “stack orbit” visual (inner / outer rings) */
+export const STACK_ORBIT_INNER = [
+  "TypeScript",
+  "React",
+  "Node",
+  "REST APIs",
+];
+
+export const STACK_ORBIT_OUTER = [
+  "Cloud",
+  "CI/CD",
+  "Observability",
+  "PostgreSQL",
+  "System design",
+];
+
 /** Rotates on Home — keep them true to you */
 export const FUN_FACTS = [
   "I treat every UI like it will be screenshared in a demo.",
