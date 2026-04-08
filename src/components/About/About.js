@@ -1,51 +1,58 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Particle from "../Particle";
 import Github from "./Github";
-import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack";
+import AboutSidePlayground from "./AboutSidePlayground";
+import LeetCodeShowcase from "../LeetCode/LeetCodeShowcase";
+import SkillsSection from "./SkillsSection";
+import PrinciplesRow from "../Flair/PrinciplesRow";
+import { SITE } from "../../config/site";
 
 function About() {
   return (
-    <Container fluid className="about-section">
-      <Particle />
+    <Container fluid className="about-section dev-page">
       <Container>
-        <Row style={{ justifyContent: "center", padding: "10px" }}>
-          <Col
-            md={7}
-            style={{
-              justifyContent: "center",
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
-          >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-              Know Who <strong className="purple">I'M</strong>
-            </h1>
+        <header className="dev-page__header">
+          <p className="dev-page__label">./about</p>
+          <h1 className="dev-page__title">
+            Engineer, builder, <span className="purple">lifelong learner</span>
+          </h1>
+          <p className="dev-page__lead">
+            {SITE.role} @ {SITE.company} — I combine product sense with strong
+            engineering habits: typed codebases, automated checks, and
+            observable systems.
+          </p>
+        </header>
+
+        <Row className="g-4 align-items-start">
+          <Col lg={7}>
             <Aboutcard />
           </Col>
-          <Col
-            md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
-            className="about-img"
-          >
-            <img src={laptopImg} alt="about" className="img-fluid" />
+          <Col lg={5}>
+            <AboutSidePlayground />
           </Col>
         </Row>
-        <h1 className="project-heading">
-          Professional <strong className="purple">Skillset </strong>
-        </h1>
 
-        <Techstack />
+        <section className="mt-5 pt-4">
+          <h2 className="project-heading mb-1">
+            Stack <span className="purple">&amp;</span> toolchain
+          </h2>
+          <p className="about-page-lead mb-4" style={{ maxWidth: "46rem" }}>
+            A visual map of the stack — each tile is a tool I reach for or stay
+            sharp on. Icons are sized for clarity; categories are color-coded.
+          </p>
+          <SkillsSection />
+        </section>
 
-        <h1 className="project-heading">
-          <strong className="purple">Tools</strong> I use
-        </h1>
-        <Toolstack />
+        <PrinciplesRow />
 
-        <Github />
+        <div className="mt-5 pt-3">
+          <Github />
+        </div>
+
+        <div className="about-leetcode-wrap">
+          <LeetCodeShowcase />
+        </div>
       </Container>
     </Container>
   );

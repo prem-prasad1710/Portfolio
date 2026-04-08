@@ -6,14 +6,14 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Frontend developer",
-          "MERN Stack Developer",
-          "Open Source Contributor",
-          "Software Developer",
+          "Software Engineer @ Paytm",
+          "TypeScript · React · Node · Cloud",
+          "Shipping products, not just tickets",
+          "LeetCode · OSS · side projects",
         ],
         autoStart: true,
         loop: true,
-        deleteSpeed: 50,
+        deleteSpeed: 40,
       }}
     />
   );

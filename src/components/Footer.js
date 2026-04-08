@@ -1,70 +1,87 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import {
   AiFillGithub,
   AiOutlineTwitter,
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import { SITE, LEETCODE_USERNAME } from "../config/site";
+import { Container } from "react-bootstrap";
 
 function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+  const year = new Date().getFullYear();
+  const lc = SITE.links.leetcode(LEETCODE_USERNAME);
+
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col md="4" className="footer-copywright">
-          <h3>Designed and Developed by Prem Prasad</h3>
-        </Col>
-        <Col md="4" className="footer-copywright">
-          <h3>Copyright © {year} Prem Prasad</h3>
-        </Col>
-        <Col md="4" className="footer-body">
-          <ul className="footer-icons">
+    <footer className="dev-footer">
+      <Container fluid className="footer px-3 px-md-4">
+        <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 py-2">
+          <div className="d-flex flex-column align-items-center align-items-md-start gap-1">
+            <p className="font-monospace small text-muted mb-0">
+              <span style={{ color: "var(--dev-accent)" }}>➜</span> ~/portfolio{" "}
+              <span className="text-white">git status</span>
+              <span className="text-muted"> — clean · © {year}</span>
+            </p>
+            <p className="font-monospace small text-muted mb-0 dev-footer__craft">
+              Hand-built React shell — no template dump.
+            </p>
+          </div>
+          <ul className="footer-icons d-flex gap-2 list-unstyled mb-0">
             <li className="social-icons">
               <a
-                href="https://github.com/prem-prasad1710"
-                style={{ color: "white" }}
-                target="_blank" 
+                href={SITE.links.github}
+                target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
                 <AiFillGithub />
               </a>
             </li>
             <li className="social-icons">
               <a
-                href="https://x.com/premprasad1710/"
-                style={{ color: "white" }}
-                target="_blank" 
+                href={lc}
+                target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LeetCode"
+              >
+                <SiLeetcode />
+              </a>
+            </li>
+            <li className="social-icons">
+              <a
+                href={SITE.links.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
               >
                 <AiOutlineTwitter />
               </a>
             </li>
             <li className="social-icons">
               <a
-                href="https://www.linkedin.com/in/prem-prasad1710/"
-                style={{ color: "white" }}
-                target="_blank" 
+                href={SITE.links.linkedin}
+                target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
               </a>
             </li>
             <li className="social-icons">
               <a
-                href="https://www.instagram.com/callme_prem_kashyap/"
-                style={{ color: "white" }}
-                target="_blank" 
+                href={SITE.links.instagram}
+                target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
                 <AiFillInstagram />
               </a>
             </li>
           </ul>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </Container>
+    </footer>
   );
 }
 

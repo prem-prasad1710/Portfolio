@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import logo from "../Assets/logo.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
 import {
   AiFillStar,
   AiOutlineHome,
@@ -15,20 +13,20 @@ import {
 } from "react-icons/ai";
 
 import { CgFileDocument } from "react-icons/cg";
+import { SITE } from "../config/site";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
+  useEffect(() => {
+    function scrollHandler() {
+      updateNavbar(window.scrollY >= 20);
     }
-  }
-
-  window.addEventListener("scroll", scrollHandler);
+    scrollHandler();
+    window.addEventListener("scroll", scrollHandler);
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
 
   return (
     <Navbar
@@ -38,7 +36,14 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          className="navbar-brand-text"
+          onClick={() => updateExpanded(false)}
+        >
+          {SITE.name.split(" ")[0]}
+          <span className="navbar-brand-dot">.</span>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -92,9 +97,11 @@ function NavBar() {
             </Nav.Item>
             <Nav.Item className="fork-btn">
               <Button
-                href=""
+                href={SITE.links.github}
                 target="_blank"
+                rel="noreferrer"
                 className="fork-btn-inner"
+                aria-label="GitHub profile"
               >
                 <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
                 <AiFillStar style={{ fontSize: "1.1em" }} />
